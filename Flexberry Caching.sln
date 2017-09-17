@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewPlatform.Flexberry.Cachi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet Package", "NuGet Package", "{FACD8555-125E-4AA6-B9C3-52310AEF0606}"
 	ProjectSection(SolutionItems) = preProject
+		config.install.xdt = config.install.xdt
+		config.uninstall.xdt = config.uninstall.xdt
 		NewPlatform.Flexberry.Caching.nuspec = NewPlatform.Flexberry.Caching.nuspec
 	EndProjectSection
 EndProject
