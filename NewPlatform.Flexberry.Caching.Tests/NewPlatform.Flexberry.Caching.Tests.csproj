@@ -84,13 +84,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NewPlatform.Flexberry.Caching\NewPlatform.Flexberry.Caching.csproj">
-      <Project>{25485dc8-5e29-4e71-aeda-a73d16b1db55}</Project>
-      <Name>NewPlatform.Flexberry.Caching</Name>
-    </ProjectReference>
+    <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\xunit.analyzers.0.10.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+    <ProjectReference Include="..\NewPlatform.Flexberry.Caching\NewPlatform.Flexberry.Caching.csproj">
+      <Project>{086710cf-d2bd-490b-bfd5-9addec782946}</Project>
+      <Name>NewPlatform.Flexberry.Caching</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
