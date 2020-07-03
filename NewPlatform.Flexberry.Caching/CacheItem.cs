@@ -2,9 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Incapsulates information about cache item include value and versions of tags.
@@ -78,7 +75,8 @@
         /// <param name="value">Value of cached item.</param>
         /// <param name="tags">Dictionary of tags associated with cached item.</param>
         /// <exception cref="ArgumentException">Throws when tag's name is null or empty or if <c>tags</c> dictionary contains two tags with same name.</exception>
-        public CacheItem(string key, T value, IDictionary<string, int> tags = null) : base(key, value, tags)
+        public CacheItem(string key, T value, IDictionary<string, int> tags = null)
+            : base(key, value, tags)
         {
             Value = value;
         }

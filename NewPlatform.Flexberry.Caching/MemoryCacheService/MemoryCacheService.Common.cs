@@ -4,8 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Caching;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public partial class MemoryCacheService
     {
@@ -66,7 +64,7 @@
                 var newTagVersion = currentTagVersion + 1;
                 _cache.Set(tagKeyForCache, new TagItem { Version = newTagVersion }, ObjectCache.InfiniteAbsoluteExpiration);
 
-                //Flush cached items associated with tag's change monitors.
+                // Flush cached items associated with tag's change monitors.
                 SignaledChangeMonitor.Signal(_cache.Name, tag);
 
                 return true;
