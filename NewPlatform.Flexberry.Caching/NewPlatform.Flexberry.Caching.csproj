@@ -1,11 +1,34 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Flexberry Caching package.</Description>
+    <Title>Flexberry Caching</Title>
+    <Authors>New Platform Ltd.</Authors>
+    <Copyright>Copyright 2017 © New Platform Ltd.</Copyright>
+    <Company>New Platform Ltd.</Company>
+    <PackageTags>Caching Flexberry</PackageTags>
+    <VersionPrefix>2.0.0-alpha03</VersionPrefix>
+    <Product>NewPlatform.Flexberry.Caching</Product>
+    <PackageId>NewPlatform.Flexberry.Caching</PackageId>
+    <PackageProjectUrl>https://flexberry.net</PackageProjectUrl>
+    <PackageIconUrl>https://flexberry.net/img/logo-color.png</PackageIconUrl>
+    <PackageLicenseUrl>https://flexberry.net</PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/Flexberry/NewPlatform.Flexberry.Caching</RepositoryUrl>
+    <PackageReleaseNotes>See https://github.com/Flexberry/NewPlatform.Flexberry.Caching/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+    <Configurations>Debug;Release</Configurations>
+    <LangVersion>7.1</LangVersion>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>NewPlatform.Flexberry.Caching.snk</AssemblyOriginatorKeyFile>
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\NewPlatform.Flexberry.ORM.ODataServiceCore.Common.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\NewPlatform.Flexberry.Caching.xml</DocumentationFile>
     <CodeAnalysisRuleSet>..\Flexberry.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,11 +40,25 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Runtime.Caching" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <PackageReference Include="System.Runtime.Caching" Version="4.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="content\config.install.xdt" />
+    <None Remove="content\config.uninstall.xdt" />
     <None Remove="StyleCop.Cache" />
+  </ItemGroup>
+
+  <ItemGroup Label="Packaging">
+    <Content Include="content\config.install.xdt" PackagePath="content\app.config.install.xdt;content\web.config.install.xdt" />
+    <Content Include="content\config.uninstall.xdt" PackagePath="content\app.config.uninstall.xdt;content\web.config.uninstall.xdt" />
   </ItemGroup>
 
 </Project>
