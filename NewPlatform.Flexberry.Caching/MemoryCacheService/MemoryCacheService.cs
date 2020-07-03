@@ -1,21 +1,19 @@
 ﻿namespace NewPlatform.Flexberry.Caching
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Linq;
     using System.Runtime.Caching;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Implementation of <see cref="ICacheService"/> based on <c>System.Runtime.Caching.MemoryCache</c>.
     /// </summary>
     public partial class MemoryCacheService : ICacheService, IDisposable
     {
-        private readonly MemoryCache _cache;
         private const string TagPrefix = "_tags/";
+
+        private readonly MemoryCache _cache;
 
         /// <inheritdoc cref="ICacheService"/>
         public int DefaultExpirationTime { get; set; }
@@ -27,7 +25,8 @@
         /// Sets <c>DefaultExpirationTime</c> to 0.
         /// </remarks>
         /// <param name="cacheName">The name of cache to use to look up configuration information. If not specified then default <c>MemoryCache</c> instance would be used.</param>
-        public MemoryCacheService(string cacheName = null) : this(cacheName, 0)
+        public MemoryCacheService(string cacheName = null)
+            : this(cacheName, 0)
         {
         }
 
@@ -113,7 +112,7 @@
         /// <inheritdoc cref="ICacheService"/>
         public IEnumerable<object> GetFromCacheByTag(string tag)
         {
-            return GetFromCacheByTags(tag == null ? null : new List <string> { tag });
+            return GetFromCacheByTags(tag == null ? null : new List<string> { tag });
         }
 
         /// <inheritdoc cref="ICacheService"/>

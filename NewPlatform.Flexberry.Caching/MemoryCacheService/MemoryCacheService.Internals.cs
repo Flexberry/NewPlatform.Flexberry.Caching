@@ -4,8 +4,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Runtime.Caching;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public partial class MemoryCacheService
     {
@@ -71,7 +69,7 @@
         /// </summary>
         /// <param name="expirationTime">Expiration time for stored item (in seconds). Zero value means data stored without expiration.</param>
         /// <param name="tags">Tags for cached item.</param>
-        /// <returns></returns>
+        /// <returns>A set of eviction and expiration details.</returns>
         private CacheItemPolicy GetPolicy(int expirationTime, IList<string> tags)
         {
             var dateTimeOffset = expirationTime == 0
@@ -81,7 +79,7 @@
             var cip = new CacheItemPolicy
             {
                 AbsoluteExpiration = dateTimeOffset,
-                SlidingExpiration = ObjectCache.NoSlidingExpiration
+                SlidingExpiration = ObjectCache.NoSlidingExpiration,
             };
 
             if (tags == null || tags.Count == 0)

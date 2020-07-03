@@ -1,13 +1,8 @@
 ﻿namespace NewPlatform.Flexberry.Caching
 {
     using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Globalization;
-    using System.Linq;
     using System.Runtime.Caching;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Class contains event data for <see cref="SignaledChangeMonitor"/>.
@@ -52,7 +47,7 @@
         /// Gets a value that represents the <c>SignaledChangeMonitor</c> class instance.
         /// </summary>
         public override string UniqueId { get; } = Guid.NewGuid().ToString("N", CultureInfo.InvariantCulture);
-        
+
         /// <summary>
         /// Optional handler for signal raising.
         /// </summary>
@@ -86,6 +81,7 @@
             Signaled?.Invoke(null, new SignaledChangeEventArgs(cacheName, name));
         }
 
+        /// <inheritdoc />
         protected override void Dispose(bool disposing)
         {
             SignaledChangeMonitor.Signaled -= OnSignalRaised;
