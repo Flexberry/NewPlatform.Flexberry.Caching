@@ -7,7 +7,7 @@
     <Copyright>Copyright 2017 © New Platform Ltd.</Copyright>
     <Company>New Platform Ltd.</Company>
     <PackageTags>Caching Flexberry</PackageTags>
-    <VersionPrefix>2.0.0-alpha03</VersionPrefix>
+    <VersionPrefix>2.0.0-beta01</VersionPrefix>
     <Product>NewPlatform.Flexberry.Caching</Product>
     <PackageId>NewPlatform.Flexberry.Caching</PackageId>
     <PackageProjectUrl>https://flexberry.net</PackageProjectUrl>
