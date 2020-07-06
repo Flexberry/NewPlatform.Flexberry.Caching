@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\Flexberry.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,6 +40,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\Flexberry.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -73,9 +75,12 @@
   <ItemGroup>
     <Compile Include="BaseCacheServiceTest.cs" />
     <Compile Include="MemoryCacheService\MemoryCacheServiceCommonTest.cs" />
+    <Compile Include="MemoryCacheService\MemoryCacheServiceMemoryLeakageTests.cs" />
     <Compile Include="MemoryCacheService\MemoryCacheServiceHelpers.cs" />
+    <Compile Include="MemoryCacheService\MemoryCacheServiceMultiThreadTests.cs" />
     <Compile Include="MemoryCacheService\MemoryCacheServiceTest.cs" />
     <Compile Include="MemoryCacheService\MemoryCacheServiceGenericTest.cs" />
+    <Compile Include="MultiThreadingTestTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SomeClass.cs" />
   </ItemGroup>

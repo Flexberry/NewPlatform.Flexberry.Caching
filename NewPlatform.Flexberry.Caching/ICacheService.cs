@@ -332,6 +332,13 @@
         void ClearCache();
 
         /// <summary>
+        /// Removes a specified percentage of cache entries from the cache object.
+        /// </summary>
+        /// <param name="percent">The percentage of total cache entries to remove.</param>
+        /// <returns>The number of entries removed from the cache.</returns>
+        long Trim(int percent);
+
+        /// <summary>
         /// Check for existing item in cache.
         /// </summary>
         /// <param name="key">Key of cached item.</param>

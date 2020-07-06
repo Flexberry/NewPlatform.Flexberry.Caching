@@ -101,6 +101,12 @@
         }
 
         /// <inheritdoc cref="ICacheService"/>
+        public long Trim(int percent = 1)
+        {
+            return _cache.Trim(percent);
+        }
+
+        /// <inheritdoc cref="ICacheService"/>
         public bool Exists(string key)
         {
             object cacheItem;
