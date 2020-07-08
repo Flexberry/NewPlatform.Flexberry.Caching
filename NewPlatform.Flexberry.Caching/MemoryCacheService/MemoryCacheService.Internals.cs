@@ -34,7 +34,7 @@
         /// </summary>
         /// <param name="tagName">Tag's name.</param>
         /// <param name="tagVersion">Tag's current version for stored item.</param>
-        /// <returns><c>True</c> if specified tag version equals tag's version stored in cache and <c>false</c> otherwise.</returns>
+        /// <returns><see langword="true" /> if specified tag version equals tag's version stored in cache and <see langword="false" /> otherwise.</returns>
         private bool IsTagValidated(string tagName, int tagVersion)
         {
             var tagKeyForCache = GetKeyForTag(tagName);
@@ -46,10 +46,10 @@
         }
 
         /// <summary>
-        /// Returns collection of <c>CacheItem</c> instances for items marked with specified tags.
+        /// Returns collection of <see cref="CacheItem" /> instances for items marked with specified tags.
         /// </summary>
         /// <param name="tags">List of tags for searching items in cache.</param>
-        /// <returns>Collection of <c>CacheItem</c> instances for items marked with specified tags.</returns>
+        /// <returns>Collection of <see cref="CacheItem" /> instances for items marked with specified tags.</returns>
         private IEnumerable<CacheItem> GetCacheItemsByTags(IList<string> tags)
         {
             if (tags == null)
@@ -65,7 +65,7 @@
         }
 
         /// <summary>
-        /// Returns <c>CacheItemPolicy</c> instance with specified params for new cache item.
+        /// Returns <see cref="CacheItemPolicy" /> instance with specified params for new cache item.
         /// </summary>
         /// <param name="expirationTime">Expiration time for stored item (in seconds). Zero value means data stored without expiration.</param>
         /// <param name="tags">Tags for cached item.</param>
@@ -100,8 +100,8 @@
         /// <summary>
         /// Checks cache item's tags to ensure it is validated.
         /// </summary>
-        /// <param name="cacheItem">Instance of <see cref="CacheItem"/> class to check its validity.</param>
-        /// <returns><c>True</c> if cache item is validated, i.e. all its tags are valid.</returns>
+        /// <param name="cacheItem">Instance of <see cref="CacheItem" /> class to check its validity.</param>
+        /// <returns><see langword="true" /> if cache item is validated, i.e. all its tags are valid.</returns>
         private bool IsCacheItemValidated(CacheItem cacheItem)
         {
             var tags = cacheItem.Tags;

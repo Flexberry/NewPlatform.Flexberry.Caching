@@ -7,10 +7,10 @@
 
     public partial class MemoryCacheService
     {
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public string CacheName => _cache?.Name;
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         /// <remarks>
         /// Information about each tag is also stored in cache.
         /// So total number of cached items will include corresponding count of items with information about tags.
@@ -20,7 +20,7 @@
             return _cache.GetCount();
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         /// <remarks>
         /// Information about tags deleted from cache only when cahce is totally clearing.
         /// So cache will store infromation about ever added tags until chache is totally cleared.
@@ -30,7 +30,7 @@
             return _cache.Count(item => item.Value is TagItem);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public IEnumerable<string> GetTagsForItem(string key)
         {
             var cacheItem = (CacheItem)_cache.Get(key);
@@ -42,13 +42,13 @@
             return cacheItem.Tags.Select(tags => tags.Key).ToList();
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool DeleteFromCache(string key)
         {
             return _cache.Remove(key) != null;
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool DeleteFromCacheByTag(string tag)
         {
             if (tag == null)
@@ -73,7 +73,7 @@
             return false;
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool DeleteFromCacheByTags(IList<string> tags)
         {
             if (tags == null)
@@ -93,27 +93,27 @@
             return anythingHasBeenDeletedFromCache;
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public void ClearCache()
         {
             // Flush all cached items.
             SignaledChangeMonitor.Signal(_cache.Name);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public long Trim(int percent = 1)
         {
             return _cache.Trim(percent);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool Exists(string key)
         {
             object cacheItem;
             return TryGetFromCache(key, out cacheItem) && _cache.Contains(key);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool ExistsByTag(string tag)
         {
             var cacheItems = GetCacheItemsByTags(tag == null ? new List<string>() : new List<string> { tag });

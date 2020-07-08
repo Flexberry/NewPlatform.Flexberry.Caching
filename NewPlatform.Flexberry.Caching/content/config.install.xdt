@@ -49,6 +49,6 @@
 
   <!--Удаление лишней секции unity, если их больше одной. Функция position() здесь не подойдет, так как она применится к селектору "/configuration/*" и не даст нужного результата.
       Секций может быть максимум две (одна, которая была и одна добавленная нами), если конфигурационный файл был корректным до применения трансформаций. Поэтому следует удалять только узел с индексом 2.-->
-  <unity xdt:Locator="XPath(/configuration/*[local-name()=&quot;unity&quot;][2])" xdt:Transform="RemoveAll"/>
+  <unity xdt:Locator="XPath(/configuration/*[local-name()=&quot;unity&quot;][2])" xdt:Transform="RemoveAll" />
 
 </configuration>
