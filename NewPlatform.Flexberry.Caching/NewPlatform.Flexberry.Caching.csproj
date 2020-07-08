@@ -4,10 +4,10 @@
     <Description>Flexberry Caching package.</Description>
     <Title>Flexberry Caching</Title>
     <Authors>New Platform Ltd.</Authors>
-    <Copyright>Copyright 2017 © New Platform Ltd.</Copyright>
+    <Copyright>Copyright 2017-2020 © New Platform Ltd.</Copyright>
     <Company>New Platform Ltd.</Company>
     <PackageTags>Caching Flexberry</PackageTags>
-    <VersionPrefix>2.0.0-beta01</VersionPrefix>
+    <VersionPrefix>2.0.0-beta02</VersionPrefix>
     <Product>NewPlatform.Flexberry.Caching</Product>
     <PackageId>NewPlatform.Flexberry.Caching</PackageId>
     <PackageProjectUrl>https://flexberry.net</PackageProjectUrl>
@@ -15,7 +15,7 @@
     <PackageLicenseUrl>https://flexberry.net</PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/Flexberry/NewPlatform.Flexberry.Caching</RepositoryUrl>
-    <PackageReleaseNotes>See https://github.com/Flexberry/NewPlatform.Flexberry.Caching/blob/master/CHANGELOG.md</PackageReleaseNotes>
+    <PackageReleaseNotes>See https://github.com/Flexberry/NewPlatform.Flexberry.Caching/blob/master/CHANGELOG.md </PackageReleaseNotes>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
@@ -36,7 +36,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="StyleCop.MSBuild" Version="6.1.0">
+    <PackageReference Include="StyleCop.MSBuild" Version="6.2.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

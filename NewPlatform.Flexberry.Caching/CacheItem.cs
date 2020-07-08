@@ -24,7 +24,7 @@
         public Dictionary<string, int> Tags { get; }
 
         /// <summary>
-        /// Initializes a new <c>CacheItem</c> instance using the specified key, value and dictionary of tags (optionaly).
+        /// Initializes a new <see cref="CacheItem" /> instance using the specified key, value and dictionary of tags (optionaly).
         /// </summary>
         /// <remarks>
         /// Information about every tag includes tag's name and tag's version.
@@ -32,7 +32,7 @@
         /// <param name="key">Key of cached item.</param>
         /// <param name="value">Value of cached item.</param>
         /// <param name="tags">Dictionary of tags associated with cached item.</param>
-        /// <exception cref="ArgumentException">Throws when tag's name is null or empty or if <c>tags</c> dictionary contains two tags with same name.</exception>
+        /// <exception cref="ArgumentException">Throws when tag's name is null or empty or if <paramref name="tags" /> dictionary contains two tags with same name.</exception>
         public CacheItem(string key, object value, IDictionary<string, int> tags = null)
         {
             Key = key;
@@ -66,7 +66,7 @@
         public new T Value { get; }
 
         /// <summary>
-        /// Initializes a new <c>CacheItem</c> instance using the specified key, value and dictionary of tags (optionaly).
+        /// Initializes a new <see cref="CacheItem" /> instance using the specified key, value and dictionary of tags (optionaly).
         /// </summary>
         /// <remarks>
         /// Information about every tag includes tag's name and tag's version.
@@ -74,7 +74,7 @@
         /// <param name="key">Key of cached item.</param>
         /// <param name="value">Value of cached item.</param>
         /// <param name="tags">Dictionary of tags associated with cached item.</param>
-        /// <exception cref="ArgumentException">Throws when tag's name is null or empty or if <c>tags</c> dictionary contains two tags with same name.</exception>
+        /// <exception cref="ArgumentException">Throws when tag's name is null or empty or if <paramref name="tags" /> dictionary contains two tags with same name.</exception>
         public CacheItem(string key, T value, IDictionary<string, int> tags = null)
             : base(key, value, tags)
         {
