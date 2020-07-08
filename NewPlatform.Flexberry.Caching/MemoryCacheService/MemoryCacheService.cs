@@ -34,9 +34,19 @@
         /// Initializes a new instance of the <c>MemoryCacheService</c> class.
         /// </summary>
         /// <param name="cacheName">The name of cache to use to look up configuration information. If not specified then default <c>MemoryCache</c> instance would be used.</param>
+        /// <param name="defaultExpirationTime">Default expiration time for items stored in cache (in seconds).</param>
+        public MemoryCacheService(string cacheName, int defaultExpirationTime)
+            : this(cacheName, defaultExpirationTime, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <c>MemoryCacheService</c> class.
+        /// </summary>
+        /// <param name="cacheName">The name of cache to use to look up configuration information. If not specified then default <c>MemoryCache</c> instance would be used.</param>
         /// <param name="config">A collection of name/value pairs of configuration information to use for configuring the cache. Default value is <c>null</c>.</param>
         /// <param name="defaultExpirationTime">Default expiration time for items stored in cache (in seconds).</param>
-        public MemoryCacheService(string cacheName, int defaultExpirationTime, NameValueCollection config = null)
+        public MemoryCacheService(string cacheName, int defaultExpirationTime, NameValueCollection config)
         {
             _cache = string.IsNullOrEmpty(cacheName) ? MemoryCache.Default : new MemoryCache(cacheName, config);
             DefaultExpirationTime = defaultExpirationTime;
