@@ -10,7 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-## [2.0.0] - 2021-02-09
+## [2.0.0] - 2021-04-07
 
 ### Added
 - `.NET Standard 2.0` implementation.

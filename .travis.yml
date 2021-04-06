@@ -1,5 +1,0 @@
-language: csharp
-solution: NewPlatform.Flexberry.Caching.sln
-script:
-  - msbuild /p:Configuration=Debug "NewPlatform.Flexberry.Caching.sln"
-  - mono ./packages/xunit.runner.console.2.4.1/tools/net461/xunit.console.exe ./NewPlatform.Flexberry.Caching.Tests/bin/Debug/NewPlatform.Flexberry.Caching.Tests.dll
