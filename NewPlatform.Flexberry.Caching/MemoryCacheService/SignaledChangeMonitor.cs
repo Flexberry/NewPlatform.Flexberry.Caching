@@ -1,16 +1,11 @@
 ﻿namespace NewPlatform.Flexberry.Caching
 {
     using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
     using System.Globalization;
-    using System.Linq;
     using System.Runtime.Caching;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
-    /// Class contains event data for <see cref="SignaledChangeMonitor"/>.
+    /// Class contains event data for <see cref="SignaledChangeMonitor" />.
     /// </summary>
     internal class SignaledChangeEventArgs : EventArgs
     {
@@ -25,7 +20,7 @@
         public string CacheName { get; }
 
         /// <summary>
-        /// Initializes a new instance of the <c>SignaledChangeEventArgs</c> class.
+        /// Initializes a new instance of the <see cref="SignaledChangeEventArgs" /> class.
         /// </summary>
         /// <param name="cacheName">Name of target cache for signal that raised event.</param>
         /// <param name="name">Name of signal that raised event.</param>
@@ -49,21 +44,21 @@
         private readonly string _cacheName;
 
         /// <summary>
-        /// Gets a value that represents the <c>SignaledChangeMonitor</c> class instance.
+        /// Gets a value that represents the <see cref="SignaledChangeMonitor" /> class instance.
         /// </summary>
         public override string UniqueId { get; } = Guid.NewGuid().ToString("N", CultureInfo.InvariantCulture);
-        
+
         /// <summary>
         /// Optional handler for signal raising.
         /// </summary>
         public event EventHandler<SignaledChangeEventArgs> SignalHandler;
 
         /// <summary>
-        /// Initializes a new instance of the <c>SignaledChangeMonitor</c> class.
+        /// Initializes a new instance of the <see cref="SignaledChangeMonitor" /> class.
         /// </summary>
-        /// <param name="cacheName">Name of cache which is added item with <c>SignaledChangeMonitor</c>.</param>
-        /// <param name="signalName">Name of signal for tracking with monitor. Default value is <c>null</c>.</param>
-        /// <param name="signalHandler">Event handler for raised signal. Default value is <c>null</c>.</param>
+        /// <param name="cacheName">Name of cache which is added item with <see cref="SignaledChangeMonitor" />.</param>
+        /// <param name="signalName">Name of signal for tracking with monitor. Default value is <see langword="null" />.</param>
+        /// <param name="signalHandler">Event handler for raised signal. Default value is <see langword="null" />.</param>
         public SignaledChangeMonitor(string cacheName, string signalName = null, EventHandler<SignaledChangeEventArgs> signalHandler = null)
         {
             _cacheName = cacheName;
@@ -79,13 +74,14 @@
         /// Invokes signal handler with specified name.
         /// </summary>
         /// <param name="cacheName">Name of target cache for signal that raised event.</param>
-        /// <param name="name">Name of raised signal. Default value is <c>null</c>.</param>
+        /// <param name="name">Name of raised signal. Default value is <see langword="null" />.</param>
         public static void Signal(string cacheName, string name = null)
         {
             // Raise shared event to notify all subscribers.
             Signaled?.Invoke(null, new SignaledChangeEventArgs(cacheName, name));
         }
 
+        /// <inheritdoc />
         protected override void Dispose(bool disposing)
         {
             SignaledChangeMonitor.Signaled -= OnSignalRaised;

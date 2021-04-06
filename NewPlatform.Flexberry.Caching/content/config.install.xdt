@@ -14,7 +14,7 @@
   <!--Вставка информации о секции конфигурации.-->
   <configSections xdt:Locator="Condition(not(section[@name=&quot;unity&quot;]))">
     <section name="unity"
-             type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"
+             type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Unity.Configuration"
              xdt:Transform="Insert" />
   </configSections>
 
@@ -39,14 +39,16 @@
               type="NewPlatform.Flexberry.Caching.ICacheService, NewPlatform.Flexberry.Caching"
               mapTo="NewPlatform.Flexberry.Caching.MemoryCacheService, NewPlatform.Flexberry.Caching"
               xdt:Transform="Insert">
+      <lifetime type="singleton" />
       <constructor>
         <param name="cacheName" type="System.String" value="defaultCacheForApplication" />
+        <param name="defaultExpirationTime" type="System.Int32" value="3600" />
       </constructor>
     </register>
   </container>
 
   <!--Удаление лишней секции unity, если их больше одной. Функция position() здесь не подойдет, так как она применится к селектору "/configuration/*" и не даст нужного результата.
       Секций может быть максимум две (одна, которая была и одна добавленная нами), если конфигурационный файл был корректным до применения трансформаций. Поэтому следует удалять только узел с индексом 2.-->
-  <unity xdt:Locator="XPath(/configuration/*[local-name()=&quot;unity&quot;][2])" xdt:Transform="RemoveAll"/>
+  <unity xdt:Locator="XPath(/configuration/*[local-name()=&quot;unity&quot;][2])" xdt:Transform="RemoveAll" />
 
 </configuration>

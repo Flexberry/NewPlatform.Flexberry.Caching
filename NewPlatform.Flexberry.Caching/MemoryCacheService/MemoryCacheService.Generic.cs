@@ -3,31 +3,28 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.Caching;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public partial class MemoryCacheService
     {
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool SetToCache<T>(string key, T value)
         {
             return SetToCache(key, value, DefaultExpirationTime, null);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool SetToCache<T>(string key, T value, IList<string> tags)
         {
             return SetToCache(key, value, DefaultExpirationTime, tags);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool SetToCache<T>(string key, T value, int expirationTime)
         {
             return SetToCache(key, value, expirationTime, null);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool SetToCache<T>(string key, T value, int expirationTime, IList<string> tags)
         {
             if (expirationTime < 0)
@@ -64,7 +61,7 @@
             return true;
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public T GetFromCache<T>(string key)
         {
             var cacheItem = (CacheItem<T>)_cache.Get(key);
@@ -76,13 +73,13 @@
             return cacheItem.Value;
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public IEnumerable<T> GetFromCacheByTag<T>(string tag)
         {
             return GetFromCacheByTags<T>(tag == null ? null : new List<string> { tag });
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public IEnumerable<T> GetFromCacheByTags<T>(IList<string> tags)
         {
             if (tags == null)
@@ -111,7 +108,7 @@
             return itemsWithLatestTagsVersionList.Select(cacheItem => cacheItem.Value);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool TryGetFromCache<T>(string key, out T result)
         {
             try
@@ -126,13 +123,13 @@
             }
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool TryGetFromCacheByTag<T>(string tag, out IEnumerable<T> result)
         {
             return TryGetFromCacheByTags(tag == null ? null : new List<string> { tag }, out result);
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool TryGetFromCacheByTags<T>(IList<string> tags, out IEnumerable<T> result)
         {
             try
@@ -147,7 +144,7 @@
             }
         }
 
-        /// <inheritdoc cref="ICacheService"/>
+        /// <inheritdoc cref="ICacheService" />
         public bool UpdateInCache<T>(string key, T value, int expirationTime, IList<string> tags)
         {
             var cacheItem = (CacheItem<T>)_cache.Get(key);
