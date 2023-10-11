@@ -157,12 +157,20 @@
         /// <inheritdoc cref="ICacheService" />
         public bool TryGetFromCache(string key, out object result)
         {
-            try
+            if (_cache.Contains(key))
             {
-                result = GetFromCache(key);
-                return true;
+                try
+                {
+                    result = GetFromCache(key);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    result = null;
+                    return false;
+                }
             }
-            catch (Exception)
+            else
             {
                 result = null;
                 return false;

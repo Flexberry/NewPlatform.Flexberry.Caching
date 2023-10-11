@@ -4,10 +4,10 @@
     <Description>Flexberry Caching package.</Description>
     <Title>Flexberry Caching</Title>
     <Authors>New Platform Ltd.</Authors>
-    <Copyright>Copyright 2017-2021 © New Platform Ltd.</Copyright>
+    <Copyright>Copyright 2017-2023 © New Platform Ltd.</Copyright>
     <Company>New Platform Ltd.</Company>
     <PackageTags>Caching Flexberry</PackageTags>
-    <VersionPrefix>2.0.0</VersionPrefix>
+    <VersionPrefix>2.0.1</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <Product>NewPlatform.Flexberry.Caching</Product>
     <PackageId>NewPlatform.Flexberry.Caching</PackageId>
