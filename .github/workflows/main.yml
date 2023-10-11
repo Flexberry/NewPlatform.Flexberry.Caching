@@ -28,7 +28,7 @@ jobs:
           dotnet-version: 7.0.x
           
       - name: Restore NewPlatform.Flexberry.Caching.sln
-        run: nuget restore NewPlatform.Flexberry.Caching.sln
+        run: dotnet restore NewPlatform.Flexberry.Caching.sln
         
       - name: Install xunit.runner.console
         run: nuget install xunit.runner.console -Version 2.4.1 -OutputDirectory testrunner
@@ -37,7 +37,7 @@ jobs:
         run:  dotnet build /p:Configuration=Debug NewPlatform.Flexberry.Caching.sln 
 
       - name: Run dotnet tests
-        run: dotnet test ./NewPlatform.Flexberry.Caching.Tests/bin/Debug/netcoreapp3.1/NewPlatform.Flexberry.Caching.Tests.dll
+        run: dotnet test ./NewPlatform.Flexberry.Caching.Tests/bin/Debug/net7.0/NewPlatform.Flexberry.Caching.Tests.dll
 
       - name: Run mono tests
         run: mono ./testrunner/xunit.runner.console.2.4.1/tools/net461/xunit.console.exe ./NewPlatform.Flexberry.Caching.Tests/bin/Debug/net461/NewPlatform.Flexberry.Caching.Tests.dll
