@@ -157,7 +157,7 @@
         /// <inheritdoc cref="ICacheService" />
         public bool TryGetFromCache(string key, out object result)
         {
-            if (_cache.Contains(key))
+            if (key == null || _cache.Contains(key))
             {
                 try
                 {
