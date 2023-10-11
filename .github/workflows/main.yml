@@ -34,7 +34,7 @@ jobs:
         run: nuget install xunit.runner.console -Version 2.4.1 -OutputDirectory testrunner
         
       - name: Compile code
-        run:  msbuild /p:Configuration=Debug NewPlatform.Flexberry.Caching.sln 
+        run:  dotnet build /p:Configuration=Debug NewPlatform.Flexberry.Caching.sln 
 
       - name: Run dotnet tests
         run: dotnet test ./NewPlatform.Flexberry.Caching.Tests/bin/Debug/netcoreapp3.1/NewPlatform.Flexberry.Caching.Tests.dll
